@@ -34,28 +34,28 @@ export const animationState: StateAnimation = {
       get: function (width: number, height: number) {
         return [
           [
-            { x: width * 0.75, y: 0 },
+            { x: width * 0.8, y: 0 },
             { x: 0, y: 0 },
-            { x: 0, y: height * 0.65 },
-            { x: width * 0.75, y: 0 }
+            { x: 0, y: height * 0.6 },
+            { x: width * 0.8, y: 0 }
           ],
           [
-            { x: width * 0.75, y: height },
-            { x: width * 0.75, y: height },
+            { x: width * 0.8, y: height },
+            { x: width * 0.8, y: height },
             { x: 0, y: height },
-            { x: 0, y: height * 0.35 }
+            { x: 0, y: height * 0.4 }
           ],
           [
             { x: width * 0.65, y: 0 },
             { x: 0, y: 0 },
-            { x: 0, y: height * 0.75 },
+            { x: 0, y: height * 0.85 },
             { x: width * 0.65, y: 0 }
           ],
           [
             { x: width * 0.65, y: height },
             { x: width * 0.65, y: height },
             { x: 0, y: height },
-            { x: 0, y: height * 0.25 }
+            { x: 0, y: height * 0.15 }
           ]
         ];
       }
