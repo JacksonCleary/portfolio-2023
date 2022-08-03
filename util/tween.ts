@@ -23,7 +23,8 @@ export interface PointObject {
 
 export function morphingPaths(
   pathPointsArrayMulti: Array<StateAnimationCoordinatePair[]>,
-  refArray: Array<RefObject<SVGPolylineElement>>
+  refArray: Array<RefObject<SVGPolylineElement>>,
+  callBack?: () => void
 ) {
   const $path1 = refArray[0];
   const $path2 = refArray[1];
@@ -37,6 +38,7 @@ export function morphingPaths(
 
   const sectionPathsArray: Array<PointObject> = [];
 
+  // there has to be a better way to do this...
   if ($path1.current) {
     switchToPath($path1.current, pathPoints1, sectionPathsArray);
     setTimeout(function () {
@@ -47,7 +49,13 @@ export function morphingPaths(
             switchToPath($path3.current, pathPoints3, sectionPathsArray);
             setTimeout(function () {
               if ($path4.current) {
-                switchToPath($path4.current, pathPoints4, sectionPathsArray);
+                // dispatch content ready on last
+                switchToPath(
+                  $path4.current,
+                  pathPoints4,
+                  sectionPathsArray,
+                  callBack
+                );
               }
             }, 200);
           }
@@ -60,8 +68,8 @@ export function morphingPaths(
 function switchToPath(
   $path: SVGPolylineElement,
   pathPoints: Array<StateAnimationCoordinatePair>,
-  sectionPathsArray: Array<PointObject>
-  //   setSectionPathArray: Dispatch<SetStateAction<Array<PointObject>>>
+  sectionPathsArray: Array<PointObject>,
+  callBack?: () => void
 ) {
   // reset var path1/path2
   sectionPathsArray = [];
@@ -90,9 +98,6 @@ function switchToPath(
   // animo con GSAP
   for (var i = 0; i < sectionPathsArray.length; i++) {
     const p = sectionPathsArray[i];
-
-    console.log(p);
-
     gsap.to(
       p,
       //   1,
@@ -104,6 +109,12 @@ function switchToPath(
         duration: 1,
         onUpdate: function () {
           animatePath($path, sectionPathsArray);
+        },
+        onComplete: function () {
+          // fire on last
+          if (callBack && i === sectionPathsArray.length - 1) {
+            callBack();
+          }
         }
       }
     );

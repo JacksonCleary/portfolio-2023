@@ -15,6 +15,7 @@ export interface ScreenDimensions {
   init?: (width: number, height: number) => ScreenDimensions;
 }
 export interface StateAnimation {
+  contentReady: boolean;
   screenDimensions: ScreenDimensions;
   coordinates: StateAnimationCoordinates;
 }

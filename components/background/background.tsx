@@ -5,6 +5,7 @@ import { PageCoordinates } from '../../state';
 import { calcPolyline, calcPath } from '../../util/svg';
 import { morphingPaths } from '../../util/tween';
 import useWindowWidth from '../../hooks/get-window-width';
+import { useRouter } from 'next/router';
 import styles from './background.module.scss';
 
 interface CoordinatesState {
@@ -12,9 +13,10 @@ interface CoordinatesState {
   coordinates: Array<StateAnimationCoordinatePair[]>;
 }
 
-export const Background = (): JSX.Element => {
+const Background = (): JSX.Element => {
   const bganim = useBackgroundAnimation();
   const windowWidth = useWindowWidth();
+  const router = useRouter();
   const pathRef1 = useRef<SVGPolylineElement>(null);
   const pathRef2 = useRef<SVGPolylineElement>(null);
   const pathRef3 = useRef<SVGPolylineElement>(null);
@@ -50,6 +52,15 @@ export const Background = (): JSX.Element => {
     useState<boolean>(false);
 
   const [morphinTime, setMorphinTime] = useState<boolean>(false);
+
+  const setContentReady = () => {
+    bganim.dispatch({
+      type: 'contentReady',
+      data: {
+        ready: true
+      }
+    });
+  };
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -115,6 +126,10 @@ export const Background = (): JSX.Element => {
     }
   }, [introPathPoints]);
 
+  useEffect(() => {
+    console.log('router', router);
+  }, [router.query]);
+
   //   useEffect(() => {
   //     console.log('introAnimationStart', introAnimationStart);
   //   }, [introAnimationStart]);
@@ -150,6 +165,7 @@ export const Background = (): JSX.Element => {
   }, [primaryAnimationStart]);
 
   useEffect(() => {
+    console.log('route', router.route);
     if (typeof window !== 'undefined') {
       if (
         path1Points &&
@@ -158,12 +174,26 @@ export const Background = (): JSX.Element => {
         path4Points &&
         morphinTime
       ) {
-        const home = bganim.state.coordinates.home as PageCoordinates;
+        // default to home;
+        let animationGroup: PageCoordinates = bganim.state.coordinates.home;
+        const route = router.route;
+        console.log('route', route);
+        if (route) {
+          const splitroute = route.split('/');
+          console.log('splitroute', splitroute);
+          if (splitroute.length > 1) {
+            console.log('splitBasePath[1]', splitroute[1]);
+            const possibleAnimSlug = splitroute[1];
+            if (bganim.state.coordinates[possibleAnimSlug]) {
+              animationGroup = bganim?.state?.coordinates[possibleAnimSlug];
+            }
+          }
+        }
         const windowWidth = window.innerWidth;
         const windowHeight = window.innerHeight;
 
-        const homeCoords = home.get(windowWidth, windowHeight);
-        morphingPaths(homeCoords, pathRefArray);
+        const animationCoords = animationGroup.get(windowWidth, windowHeight);
+        morphingPaths(animationCoords, pathRefArray, setContentReady);
         setMorphinTime(false);
         bganim.dispatch({
           type: 'updateDimensions',
@@ -178,7 +208,7 @@ export const Background = (): JSX.Element => {
 
   useEffect(() => {
     setMorphinTime(true);
-  }, [windowWidth]);
+  }, [windowWidth, router.route]);
 
   return (
     <div id={styles.stage}>
@@ -187,6 +217,7 @@ export const Background = (): JSX.Element => {
         width={bganim.state.screenDimensions.width}
         height={bganim.state.screenDimensions.height}
         className={styles[`section_${currentCoordinates.class}`]}
+        xmlns="http://www.w3.org/2000/svg"
       >
         <defs>
           <linearGradient id={styles.fill1}>
@@ -253,3 +284,5 @@ export const Background = (): JSX.Element => {
     </div>
   );
 };
+
+export default Background;

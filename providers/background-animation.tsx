@@ -11,7 +11,12 @@ type Action =
         height: number;
       };
     }
-  | { type: 'init' };
+  | {
+      type: 'contentReady';
+      data: {
+        ready: boolean;
+      };
+    };
 type Dispatch = (action: Action) => void;
 type State = BackgroundAnimationProviderState;
 type BackgroundAnimationProviderProps = { children: React.ReactNode };
@@ -22,7 +27,6 @@ const BackgroundAnimationContext = React.createContext<
 
 function backgroundAnimationReducer(state: State, action: Action) {
   const newState = { ...state };
-  console.log('action', action);
   switch (action.type) {
     case 'updateDimensions': {
       return {
@@ -32,6 +36,12 @@ function backgroundAnimationReducer(state: State, action: Action) {
           width: action.data.width,
           height: action.data.height
         }
+      };
+    }
+    case 'contentReady': {
+      return {
+        ...newState,
+        contentReady: action.data.ready
       };
     }
     default: {

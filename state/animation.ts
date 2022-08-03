@@ -1,6 +1,7 @@
 import { StateAnimation } from './models';
 
 export const animationState: StateAnimation = {
+  contentReady: false,
   screenDimensions: {
     width: 0,
     height: 0,
@@ -54,6 +55,36 @@ export const animationState: StateAnimation = {
           [
             { x: width * 0.65, y: height },
             { x: width * 0.65, y: height },
+            { x: 0, y: height },
+            { x: 0, y: height * 0.15 }
+          ]
+        ];
+      }
+    },
+    about: {
+      get: function (width: number, height: number) {
+        return [
+          [
+            { x: width * 0.1, y: 0 },
+            { x: 0, y: 0 },
+            { x: 0, y: height * 0.9 },
+            { x: width * 0.1, y: 0 }
+          ],
+          [
+            { x: width * 0.1, y: height },
+            { x: width * 0.1, y: height },
+            { x: 0, y: height },
+            { x: 0, y: height * 0.4 }
+          ],
+          [
+            { x: width * 0.95, y: 0 },
+            { x: 0, y: 0 },
+            { x: 0, y: height * 0.12 },
+            { x: width * 0.95, y: 0 }
+          ],
+          [
+            { x: width * 0.95, y: height },
+            { x: width * 0.95, y: height },
             { x: 0, y: height },
             { x: 0, y: height * 0.15 }
           ]

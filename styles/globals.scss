@@ -5,6 +5,12 @@ body[data-theme='light'] {
   --color-bg-primary: #fff;
   --color-bg-toggle: #1e90ff;
 
+  // font
+  --font-primary: 'Roboto', sans-serif;
+  --font-secondary: 'Oswald', sans-serif;
+  --font-secondary-weight-std: 500;
+  --font-monospaced: 'Source Code Pro', monospace;
+
   // animation vars
   --color-fill1-stop1: pink;
   --color-fill1-stop2: green;
@@ -14,6 +20,16 @@ body[data-theme='light'] {
   --color-fill3-stop2: orange;
   --color-fill4-stop1: blue;
   --color-fill4-stop2: white;
+
+  // spacing
+  --spacing-x-small: 8px;
+  --spacing-smaller: 16px;
+  --spacing-small: 20px;
+  --spacing-medium: 32px;
+  --spacing-large: 40px;
+  --spacing-larger: 64px;
+  --spacing-x-large: 80px;
+  --spacing-xx-large: 100px;
 }
 
 body[data-theme='dark'] {
@@ -39,8 +55,26 @@ body {
   font-family: sans-serif;
   padding: 0;
   margin: 0;
+  font-family: var(--font-primary);
+  color: var(--color-text-primary);
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: initial;
 }
 
 h1 {
   color: var(--color-text-secondary);
+  font-size: 2rem;
+}
+
+p {
+  margin: 0;
 }

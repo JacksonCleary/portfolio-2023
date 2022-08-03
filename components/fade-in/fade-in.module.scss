@@ -1,0 +1,42 @@
+$element_transition_time: 0.6s;
+$line_transition_time: 1.2s;
+$line_delay: 0.3s;
+
+.fadeIn {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  left: -15px;
+  opacity: 0;
+  transition: opacity $element_transition_time ease-in-out,
+    left $element_transition_time ease-in-out;
+  .header {
+    svg {
+      width: 100%;
+      height: 1px;
+      margin-bottom: var(--spacing-smaller);
+      stroke: var(--color-fill1-stop2);
+      path {
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 1000;
+        fill: none;
+      }
+    }
+  }
+  &.ready {
+    left: 0;
+    opacity: 1;
+    svg {
+      path {
+        animation: dash $line_transition_time ease-in-out forwards;
+        animation-delay: $line_delay;
+      }
+    }
+  }
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
