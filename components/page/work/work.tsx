@@ -1,15 +1,15 @@
 import React from 'react';
 import { FadeIn } from '../../fade-in';
-import { ContentHome } from '@/content/pages';
-import styles from './home.module.scss';
+import { ContentWork } from '@/content/pages';
+import styles from './work.module.scss';
 
-export const HomeComponent = (): JSX.Element => {
+export const WorkComponent = (): JSX.Element => {
   const title = 'Hello There!';
 
   return (
-    <div className={styles.home}>
+    <div className={styles.work}>
       <FadeIn title={title} className={styles.content}>
-        <ContentHome />
+        <ContentWork />
       </FadeIn>
     </div>
   );

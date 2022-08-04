@@ -3,6 +3,7 @@ body[data-theme='light'] {
   --color-text-primary: #27201a;
   --color-text-secondary: #076963;
   --color-bg-primary: #fff;
+  --color-bg-primary-alpha: rgba(255, 255, 255, 0.75);
   --color-bg-toggle: #1e90ff;
 
   // font
@@ -36,6 +37,8 @@ body[data-theme='dark'] {
   --color-text-primary: #e3e3e3;
   --color-text-secondary: #ff6b00;
   --color-bg-primary: #15232d;
+  --color-bg-primary-alpha: rgba(21, 35, 45, 0.75);
+  --color-bg-primary-zero: rgba(21, 35, 45, 0);
   --color-bg-toggle: #a9a9a9;
 
   // animation vars
@@ -75,6 +78,18 @@ h1 {
   font-size: 2rem;
 }
 
-p {
-  margin: 0;
+p,
+hr {
+  margin: 0 0 var(--spacing-smaller) 0;
+}
+
+a {
+  color: var(--color-fill1-stop2);
+  text-decoration: none;
+  transition: color 200ms ease-in-out;
+  &:focus-visible,
+  &:active,
+  &:hover {
+    color: var(--color-text-secondary);
+  }
 }

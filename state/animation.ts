@@ -61,7 +61,7 @@ export const animationState: StateAnimation = {
         ];
       }
     },
-    about: {
+    work: {
       get: function (width: number, height: number) {
         return [
           [

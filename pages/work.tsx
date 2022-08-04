@@ -1,9 +1,9 @@
 import type { NextPage } from 'next';
-import { Wrapper } from '../components/wrapper';
-import { HomeComponent } from '../components/page';
+import { Wrapper } from '@/components/wrapper';
+import { WorkComponent } from '@/components/page';
 import { NavItem } from '@/components/nav';
 
-const Home: NextPage = () => {
+const Work: NextPage = () => {
   return (
     <>
       <Wrapper>
@@ -15,12 +15,12 @@ const Home: NextPage = () => {
             right: ' 90%'
           }}
         >
-          <NavItem route="/work" text="Work" label="Go To Work Page" />
+          <NavItem route="/" text="Home" label="Go To Home Page" />
         </div>
-        <HomeComponent />
+        <WorkComponent />
       </Wrapper>
     </>
   );
 };
 
-export default Home;
+export default Work;

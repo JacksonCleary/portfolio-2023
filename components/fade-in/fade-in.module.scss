@@ -1,41 +1,110 @@
-$element_transition_time: 0.6s;
-$line_transition_time: 1.2s;
-$line_delay: 0.3s;
+// times
+$header_transition_time: 1s;
+$line_transition_time: 1.5s;
+$content_transition_time: 1.5s;
+
+// intro delays
+$background_transition_delay_intro: 0s;
+$header_transition_delay_intro: 0s;
+$line_transition_delay_intro: 1s;
+$content_transition_delay_intro: 1.5s;
+
+// outro delays
+$background_transition_delay_outro: 0.5s;
+$header_transition_delay_outro: 0.5s;
+$content_transition_delay_outro: 0s;
+
+$transition_func: cubic-bezier(0.165, 0.84, 0.44, 1);
 
 .fadeIn {
   display: flex;
   flex-direction: column;
   position: relative;
-  left: -15px;
-  opacity: 0;
-  transition: opacity $element_transition_time ease-in-out,
-    left $element_transition_time ease-in-out;
+  padding: var(--spacing-small);
+  border: 1px transparent solid;
+  border-radius: 5px;
+  transition: background-color 200ms ease-in-out;
   .header {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    left: -50px;
+    opacity: 0;
+    transition: opacity $header_transition_time $transition_func,
+      left $header_transition_time $transition_func;
+    h1 {
+      display: inline-block;
+    }
     svg {
-      width: 100%;
       height: 1px;
       margin-bottom: var(--spacing-smaller);
       stroke: var(--color-fill1-stop2);
       path {
         stroke-dasharray: 1000;
-        stroke-dashoffset: 1000;
         fill: none;
       }
     }
   }
+  .content {
+    position: relative;
+    top: -10px;
+    opacity: 0;
+    transition: opacity $content_transition_time $transition_func,
+      top $content_transition_time $transition_func;
+  }
+  &.intro {
+    background-color: var(--color-bg-primary-alpha);
+    transition-delay: $background_transition_delay_intro;
+    .header {
+      left: 0;
+      opacity: 1;
+      transition-delay: $header_transition_delay_intro;
+    }
+    svg path {
+      stroke-dashoffset: 1000;
+      animation: dashIn $line_transition_time linear forwards;
+      animation-delay: $line_transition_delay_intro;
+    }
+    .content {
+      top: 0;
+      opacity: 1;
+      transition-delay: $content_transition_delay_intro;
+    }
+  }
+  &.outro {
+    background-color: var(--color-bg-primary-zero);
+    transition-delay: $background_transition_delay_outro;
+    .header {
+      left: -50px;
+      opacity: 0;
+      transition-delay: $header_transition_delay_outro;
+    }
+    .content {
+      top: -10px;
+      opacity: 0;
+      transition-delay: $content_transition_delay_outro;
+    }
+  }
   &.ready {
-    left: 0;
-    opacity: 1;
+    background-color: var(--color-bg-primary-alpha);
+    .header {
+      left: 0;
+      opacity: 1;
+    }
+    .content {
+      top: 0;
+      opacity: 1;
+    }
     svg {
       path {
-        animation: dash $line_transition_time ease-in-out forwards;
-        animation-delay: $line_delay;
+        animation: dash $line_transition_time linear forwards;
       }
     }
   }
 }
 
-@keyframes dash {
+@keyframes dashIn {
   to {
     stroke-dashoffset: 0;
   }
