@@ -65,28 +65,28 @@ export const animationState: StateAnimation = {
       get: function (width: number, height: number) {
         return [
           [
-            { x: width * 0.1, y: 0 },
-            { x: 0, y: 0 },
-            { x: 0, y: height * 0.9 },
-            { x: width * 0.1, y: 0 }
+            { x: width + 400, y: 0 },
+            { x: width + 400, y: 0 },
+            { x: width + 400, y: height },
+            { x: 400, y: height }
           ],
           [
-            { x: width * 0.1, y: height },
-            { x: width * 0.1, y: height },
-            { x: 0, y: height },
-            { x: 0, y: height * 0.4 }
+            { x: width + 200, y: 0 },
+            { x: width + 200, y: 0 },
+            { x: width + 200, y: height },
+            { x: 200, y: height }
           ],
           [
-            { x: width * 0.95, y: 0 },
-            { x: 0, y: 0 },
-            { x: 0, y: height * 0.12 },
-            { x: width * 0.95, y: 0 }
+            { x: width, y: 0 },
+            { x: width, y: 0 },
+            { x: width, y: height },
+            { x: 0, y: height }
           ],
           [
-            { x: width * 0.95, y: height },
-            { x: width * 0.95, y: height },
-            { x: 0, y: height },
-            { x: 0, y: height * 0.15 }
+            { x: width - 200, y: 0 },
+            { x: width, y: 0 },
+            { x: width, y: height },
+            { x: -200, y: height }
           ]
         ];
       }

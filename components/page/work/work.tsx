@@ -4,7 +4,7 @@ import { ContentWork } from '@/content/pages';
 import styles from './work.module.scss';
 
 export const WorkComponent = (): JSX.Element => {
-  const title = 'Hello There!';
+  const title = 'Work History';
 
   return (
     <div className={styles.work}>

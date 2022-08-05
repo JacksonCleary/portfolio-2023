@@ -34,22 +34,31 @@ body[data-theme='light'] {
 }
 
 body[data-theme='dark'] {
-  --color-text-primary: #e3e3e3;
-  --color-text-secondary: #ff6b00;
+  --color-text-primary: #d6d6d6;
+  --color-text-secondary: #e87d3e;
   --color-bg-primary: #15232d;
   --color-bg-primary-alpha: rgba(21, 35, 45, 0.75);
   --color-bg-primary-zero: rgba(21, 35, 45, 0);
   --color-bg-toggle: #a9a9a9;
 
   // animation vars
-  --color-fill1-stop1: #ffffff;
-  --color-fill1-stop2: #9dffa8;
-  --color-fill2-stop1: #e5ffe6;
-  --color-fill2-stop2: #89ff9b;
-  --color-fill3-stop1: #d4ffd3;
-  --color-fill3-stop2: #6fff81;
-  --color-fill4-stop1: #c5ffc6;
-  --color-fill4-stop2: #4fff67;
+  // --color-fill1-stop1: #d6d6d6;
+  // --color-fill1-stop2: #9dffa8;
+  // --color-fill2-stop1: #e5ffe6;
+  // --color-fill2-stop2: #89ff9b;
+  // --color-fill3-stop1: #d4ffd3;
+  // --color-fill3-stop2: #6fff81;
+  // --color-fill4-stop1: #c5ffc6;
+  // --color-fill4-stop2: #4fff67;
+
+  --color-fill1-stop1: #9dffa9af;
+  --color-fill1-stop2: #d6d6d6;
+  --color-fill2-stop1: #89ff9b7d;
+  --color-fill2-stop2: #e5ffe6;
+  --color-fill3-stop1: #6fff8269;
+  --color-fill3-stop2: #d4ffd3;
+  --color-fill4-stop1: #4fff6739;
+  --color-fill4-stop2: #c5ffc6;
 }
 
 body {

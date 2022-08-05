@@ -6,12 +6,12 @@ $content_transition_time: 1.5s;
 // intro delays
 $background_transition_delay_intro: 0s;
 $header_transition_delay_intro: 0s;
-$line_transition_delay_intro: 1s;
-$content_transition_delay_intro: 1.5s;
+$line_transition_delay_intro: 0.5s;
+$content_transition_delay_intro: 0.8s;
 
 // outro delays
-$background_transition_delay_outro: 0.5s;
-$header_transition_delay_outro: 0.5s;
+$background_transition_delay_outro: 0.3s;
+$header_transition_delay_outro: 0.3s;
 $content_transition_delay_outro: 0s;
 
 $transition_func: cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -39,10 +39,11 @@ $transition_func: cubic-bezier(0.165, 0.84, 0.44, 1);
     svg {
       height: 1px;
       margin-bottom: var(--spacing-smaller);
-      stroke: var(--color-fill1-stop2);
+
       path {
         stroke-dasharray: 1000;
         fill: none;
+        stroke: var(--color-fill1-stop1);
       }
     }
   }
@@ -50,11 +51,13 @@ $transition_func: cubic-bezier(0.165, 0.84, 0.44, 1);
     position: relative;
     top: -10px;
     opacity: 0;
+    overflow: scroll;
     transition: opacity $content_transition_time $transition_func,
       top $content_transition_time $transition_func;
   }
   &.intro {
-    background-color: var(--color-bg-primary-alpha);
+    // background-color: var(--color-bg-primary-alpha);
+    background-color: var(--color-bg-primary);
     transition-delay: $background_transition_delay_intro;
     .header {
       left: 0;

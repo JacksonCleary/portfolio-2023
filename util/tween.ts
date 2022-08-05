@@ -98,6 +98,8 @@ function switchToPath(
   // animo con GSAP
   for (var i = 0; i < sectionPathsArray.length; i++) {
     const p = sectionPathsArray[i];
+    // gsap.ticker.lagSmoothing(1000, 16);
+    // gsap.ticker.fps(30);
     gsap.to(
       p,
       //   1,
@@ -107,6 +109,7 @@ function switchToPath(
         ease: Expo.easeInOut,
         delay: i * 0.25,
         duration: 1,
+        stagger: 0.01,
         onUpdate: function () {
           animatePath($path, sectionPathsArray);
         },
@@ -121,6 +124,7 @@ function switchToPath(
   }
 
   function animatePath($path: SVGPolylineElement, coordsArr: PointObject[]) {
+    console.log('coordsArr', coordsArr);
     var points = '';
     for (var i = 0; i < coordsArr.length; i++) {
       var point = coordsArr[i].x + ',' + coordsArr[i].y;

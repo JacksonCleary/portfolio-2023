@@ -12,6 +12,7 @@
   // height: 100vh;
   // mix-blend-mode: multiply;
   // background-color: pink;
+  // will-change: contents;
 }
 
 #introPath1,
@@ -57,7 +58,7 @@
 #path2,
 #path3,
 #path4 {
-  mix-blend-mode: multiply;
+  // mix-blend-mode: multiply;
 }
 
 #path2 {
