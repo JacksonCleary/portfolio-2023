@@ -1,7 +1,9 @@
 import { StateAnimation } from './models';
+import { rotateXY } from '@/util/tween';
 
 export const animationState: StateAnimation = {
   contentReady: false,
+  bodyClasses: [],
   screenDimensions: {
     width: 0,
     height: 0,
@@ -87,6 +89,152 @@ export const animationState: StateAnimation = {
             { x: width, y: 0 },
             { x: width, y: height },
             { x: -200, y: height }
+          ]
+        ];
+      }
+    },
+    portfolio: {
+      get: function (width: number, height: number) {
+        const middleWidth = Math.floor(width / 2);
+        const middleHeight = Math.floor(height / 2);
+        const sizeModifier = 150;
+        const squareULCoordinates = [
+          middleWidth - sizeModifier,
+          middleHeight - sizeModifier
+        ];
+        const squareURCoordinates = [
+          middleWidth + sizeModifier,
+          middleHeight - sizeModifier
+        ];
+        const squareBRCoordinates = [
+          middleWidth + sizeModifier,
+          middleHeight + sizeModifier
+        ];
+        const squareBLCoordinates = [
+          middleWidth - sizeModifier,
+          middleHeight + sizeModifier
+        ];
+
+        return [
+          [
+            rotateXY(
+              middleWidth,
+              middleHeight,
+              squareULCoordinates[0],
+              squareULCoordinates[1],
+              47
+            ),
+            rotateXY(
+              middleWidth,
+              middleHeight,
+              squareURCoordinates[0],
+              squareURCoordinates[1],
+              47
+            ),
+            rotateXY(
+              middleWidth,
+              middleHeight,
+              squareBRCoordinates[0],
+              squareBRCoordinates[1],
+              47
+            ),
+            rotateXY(
+              middleWidth,
+              middleHeight,
+              squareBLCoordinates[0],
+              squareBLCoordinates[1],
+              47
+            )
+          ],
+          [
+            rotateXY(
+              middleWidth,
+              middleHeight,
+              squareULCoordinates[0],
+              squareULCoordinates[1],
+              51
+            ),
+            rotateXY(
+              middleWidth,
+              middleHeight,
+              squareURCoordinates[0],
+              squareURCoordinates[1],
+              51
+            ),
+            rotateXY(
+              middleWidth,
+              middleHeight,
+              squareBRCoordinates[0],
+              squareBRCoordinates[1],
+              51
+            ),
+            rotateXY(
+              middleWidth,
+              middleHeight,
+              squareBLCoordinates[0],
+              squareBLCoordinates[1],
+              51
+            )
+          ],
+          [
+            rotateXY(
+              middleWidth,
+              middleHeight,
+              squareULCoordinates[0],
+              squareULCoordinates[1],
+              43
+            ),
+            rotateXY(
+              middleWidth,
+              middleHeight,
+              squareURCoordinates[0],
+              squareURCoordinates[1],
+              43
+            ),
+            rotateXY(
+              middleWidth,
+              middleHeight,
+              squareBRCoordinates[0],
+              squareBRCoordinates[1],
+              43
+            ),
+            rotateXY(
+              middleWidth,
+              middleHeight,
+              squareBLCoordinates[0],
+              squareBLCoordinates[1],
+              43
+            )
+          ],
+          [
+            rotateXY(
+              middleWidth,
+              middleHeight,
+              squareULCoordinates[0],
+              squareULCoordinates[1],
+              39
+            ),
+            rotateXY(
+              middleWidth,
+              middleHeight,
+              squareURCoordinates[0],
+              squareURCoordinates[1],
+              39
+            ),
+            rotateXY(
+              middleWidth,
+              middleHeight,
+              squareBRCoordinates[0],
+              squareBRCoordinates[1],
+              39
+            ),
+            rotateXY(
+              middleWidth,
+              middleHeight,
+              squareBLCoordinates[0],
+              squareBLCoordinates[1],
+              39
+            )
           ]
         ];
       }

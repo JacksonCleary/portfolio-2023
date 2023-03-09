@@ -1,3 +1,5 @@
+$transition_func: cubic-bezier(0.165, 0.84, 0.44, 1);
+
 #stage {
   position: absolute;
   width: 100%;
@@ -13,6 +15,31 @@
   // mix-blend-mode: multiply;
   // background-color: pink;
   // will-change: contents;
+
+  polygon {
+    transform-box: fill-box;
+    transform-origin: center;
+    transition: transform 200ms $transition_func;
+    transform: rotate(0deg);
+  }
+
+  &.portfolioHover {
+    #path1 {
+      transform: rotate(2deg);
+    }
+
+    #path2 {
+      transform: rotate(6deg);
+    }
+
+    #path3 {
+      transform: rotate(-2deg);
+    }
+
+    #path4 {
+      transform: rotate(-6deg);
+    }
+  }
 }
 
 #introPath1,

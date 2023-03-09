@@ -1,18 +1,6 @@
-import React, { SetStateAction, Dispatch, RefObject } from 'react';
+import { RefObject } from 'react';
 import gsap, { Expo } from 'gsap';
 import { StateAnimationCoordinatePair } from '../state';
-
-// export const determinePathPointIndexBySlug = (slug = 'home'): number => {
-//   let index: number;
-//   switch (slug) {
-//     case 'about':
-//       index = 1;
-//       break;
-//     default:
-//       index = 0;
-//   }
-//   return index;
-// };
 
 export interface PointObject {
   x: string;
@@ -81,7 +69,6 @@ function switchToPath(
     actualPointsSplit = actualPoints.split(' ');
   }
 
-  // creo un oggetto path1 / path2 che abbia i punti iniziali e finali
   for (var i = 0; i < pathPoints.length; i++) {
     const actualPoint = actualPointsSplit[i].split(',');
     const obj = {
@@ -124,7 +111,6 @@ function switchToPath(
   }
 
   function animatePath($path: SVGPolylineElement, coordsArr: PointObject[]) {
-    console.log('coordsArr', coordsArr);
     var points = '';
     for (var i = 0; i < coordsArr.length; i++) {
       var point = coordsArr[i].x + ',' + coordsArr[i].y;
@@ -132,4 +118,19 @@ function switchToPath(
     }
     $path.setAttribute('points', points);
   }
+}
+
+export function rotateXY(
+  cx: number,
+  cy: number,
+  x: number,
+  y: number,
+  angle: number
+): { x: number; y: number } {
+  var radians = (Math.PI / 180) * angle,
+    cos = Math.cos(radians),
+    sin = Math.sin(radians),
+    nx = Math.floor(cos * (x - cx) + sin * (y - cy) + cx),
+    ny = Math.floor((ny = cos * (y - cy) - sin * (x - cx) + cy));
+  return { x: nx, y: ny };
 }

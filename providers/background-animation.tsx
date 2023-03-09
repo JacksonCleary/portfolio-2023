@@ -16,6 +16,12 @@ type Action =
       data: {
         ready: boolean;
       };
+    }
+  | {
+      type: 'updateBodyClasses';
+      data: {
+        classes: string[];
+      };
     };
 type Dispatch = (action: Action) => void;
 type State = BackgroundAnimationProviderState;
@@ -42,6 +48,12 @@ function backgroundAnimationReducer(state: State, action: Action) {
       return {
         ...newState,
         contentReady: action.data.ready
+      };
+    }
+    case 'updateBodyClasses': {
+      return {
+        ...newState,
+        bodyClasses: action.data.classes
       };
     }
     default: {

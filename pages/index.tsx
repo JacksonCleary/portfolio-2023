@@ -16,6 +16,11 @@ const Home: NextPage = () => {
           }}
         >
           <NavItem route="/work" text="Work" label="Go To Work Page" />
+          <NavItem
+            route="/portfolio"
+            text="Portfolio"
+            label="Go To Portfolio Page"
+          />
         </div>
         <HomeComponent />
       </Wrapper>

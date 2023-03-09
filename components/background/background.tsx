@@ -51,6 +51,8 @@ const Background = (): JSX.Element => {
   const [primaryAnimationStart, setPrimaryAnimationStart] =
     useState<boolean>(false);
 
+  const [svgClasses, setSvgClasses] = useState<string>('');
+
   const [morphinTime, setMorphinTime] = useState<boolean>(false);
 
   const setContentReady = () => {
@@ -60,6 +62,21 @@ const Background = (): JSX.Element => {
         ready: true
       }
     });
+  };
+
+  const renderClasses = (classes: string[]): string => {
+    console.log('classes', classes);
+    const renderString =
+      classes.length > 0
+        ? classes.reduce((previousValue, currentValue) => {
+            console.log('previous', previousValue);
+            console.log('current', currentValue);
+            console.log('classifyed', styles[currentValue]);
+            return previousValue + ` ${styles[currentValue]}`;
+          }, '')
+        : '';
+    console.log('renderString', renderString);
+    return renderString;
   };
 
   useEffect(() => {
@@ -77,7 +94,14 @@ const Background = (): JSX.Element => {
   }, []);
 
   useEffect(() => {
-    console.log('newstate in Background', bganim.state);
+    if (bganim.state.bodyClasses.length > 0) {
+      setSvgClasses(renderClasses(bganim.state.bodyClasses));
+    } else {
+      setSvgClasses('');
+    }
+  }, [bganim.state.bodyClasses]);
+
+  useEffect(() => {
     if (
       bganim.state.screenDimensions.width > 0 &&
       bganim.state.screenDimensions.height > 0 &&
@@ -216,7 +240,9 @@ const Background = (): JSX.Element => {
         id={styles.background}
         width={bganim.state.screenDimensions.width}
         height={bganim.state.screenDimensions.height}
-        className={styles[`section_${currentCoordinates.class}`]}
+        className={`${
+          styles[`section_${currentCoordinates.class}`]
+        } ${svgClasses}`}
         xmlns="http://www.w3.org/2000/svg"
       >
         <defs>
