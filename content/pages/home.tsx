@@ -1,6 +1,7 @@
 export const ContentHome = (): JSX.Element => {
   return (
     <section>
+      <h1>Hello</h1>
       <p>My name is Daniel, and I am a software engineer. </p>
       <p>
         These days it&apos;s mostly Javascript, but I have experience in other

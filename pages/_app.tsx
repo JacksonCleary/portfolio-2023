@@ -3,8 +3,19 @@ import type { AppProps } from 'next/app';
 import dynamic from 'next/dynamic';
 import { BackgroundAnimationProvider } from '../providers';
 
-const DynamicBackground = dynamic(
-  () => import('../components/background/background'),
+// const DynamicBackground = dynamic(
+//   () => import('../components/background/background'),
+//   {
+//     ssr: false
+//   }
+// );
+
+const DynamicMeSVG = dynamic(() => import('../components/me-svg/me-svg'), {
+  ssr: false
+});
+
+const DynamicMask = dynamic(
+  () => import('../components/mask-collection/mask-collection'),
   {
     ssr: false
   }
@@ -13,10 +24,13 @@ const DynamicBackground = dynamic(
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <BackgroundAnimationProvider>
+      {/* <BackgroundAnimationProvider>
         <DynamicBackground />
-        <Component {...pageProps} />
-      </BackgroundAnimationProvider>
+        
+      </BackgroundAnimationProvider> */}
+      <DynamicMask />
+      <DynamicMeSVG />
+      <Component {...pageProps} />
     </>
   );
 }

@@ -1,3 +1,5 @@
+@import '../../styles/breakpoints.scss';
+
 .wrapper {
   position: relative;
   z-index: 2;
@@ -6,4 +8,11 @@
   display: flex;
   box-sizing: border-box;
   padding: var(--spacing-medium);
+  background-repeat: repeat;
+}
+
+@media screen and (min-width: $breakpoint-tablet) {
+  .wrapper {
+    width: 75vw;
+  }
 }

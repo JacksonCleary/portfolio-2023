@@ -1,0 +1,52 @@
+@import '../../styles/breakpoints.scss';
+
+.outline {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  overflow: hidden;
+  width: auto;
+  display: inline-block;
+}
+
+svg#daniel-bw {
+  // display: none;
+  width: auto;
+  height: 100%;
+  path {
+    fill: transparent;
+    stroke-dasharray: 1582;
+    stroke-dashoffset: 1582;
+    stroke-width: 0.25px;
+    stroke: var(--color-daniel-stroke);
+    animation: danielAnimate 5s ease-in-out forwards;
+    animation-delay: 0.5s;
+  }
+}
+
+@keyframes danielAnimate {
+  0% {
+    stroke-dashoffset: 1582;
+  }
+
+  50% {
+    /* stroke-dashoffset: 0; */
+    fill: transparent;
+    fill: var(--color-daniel-fill);
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+    fill: var(--color-daniel-fill);
+  }
+}
+
+@media screen and (min-width: $breakpoint-desktop-small) {
+  svg#daniel-bw {
+    display: block;
+    path {
+      animation: danielAnimate 5s ease-in-out forwards;
+      animation-delay: 0.5s;
+    }
+  }
+}
