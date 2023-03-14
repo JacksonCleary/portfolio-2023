@@ -1,0 +1,7 @@
+.link {
+  &.active {
+    color: var(--color-text-tertiary);
+    background-color: var(--color-text-secondary);
+    transition-delay: 1.25s;
+  }
+}

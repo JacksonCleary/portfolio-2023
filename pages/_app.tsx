@@ -1,7 +1,7 @@
 import '../styles/globals.scss';
 import type { AppProps } from 'next/app';
 import dynamic from 'next/dynamic';
-import { BackgroundAnimationProvider } from '../providers';
+import { BackgroundAnimationProvider, MaskProvider } from '../providers';
 
 // const DynamicBackground = dynamic(
 //   () => import('../components/background/background'),
@@ -28,9 +28,12 @@ function MyApp({ Component, pageProps }: AppProps) {
         <DynamicBackground />
         
       </BackgroundAnimationProvider> */}
-      <DynamicMask />
-      <DynamicMeSVG />
-      <Component {...pageProps} />
+      <MaskProvider>
+        <DynamicMask />
+        <DynamicMeSVG />
+
+        <Component {...pageProps} />
+      </MaskProvider>
     </>
   );
 }

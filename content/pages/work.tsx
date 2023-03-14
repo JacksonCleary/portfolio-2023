@@ -1,28 +1,30 @@
+import { Heading } from '@/components/heading';
+
 export const ContentWork = (): JSX.Element => {
   return (
     <section>
+      <Heading text="Work History" />
+      <h2>
+        Software Design Engineer, 343 Industries; Redmond, WA - 2020 - Present
+      </h2>
       <p>
-        <em>
-          <strong>
-            Freelance Full Stack developer, JacksonCleary; Seattle, WA — 2010 -
-            Present
-          </strong>
-        </em>
-        <br />
-        Web development in a freelance capacity: building new features across
-        WordPress, custom PHP solutions, interactive Javascript presentations,
-        and building React / VueJS components including frameworks like Nuxt.js
-        and Gatsby.
+        Software development building out new services, extending APIs,
+        providing training, internationalization, and pushing accessible UX for
+        the redesign and launch of Halo Waypoint. Development includes paired
+        launches of content for two AAA Halo game titles with ways to view
+        player records, statistics, progression, and customization.
+        Technological experience includes Javascript ES6, PHP7, WordPress,
+        NodeJS, NextJS, React Three Fiber, Canvas, React, React Native,
+        Typescript, Jest testing, Storybook, Docker, SCSS, SVG animation, Azure
+        DevOps.
       </p>
+
       <hr />
+      <h2>
+        Front End Web Developer, En Masse Entertainment; Seattle, WA — 2019 -
+        2020
+      </h2>
       <p>
-        <em>
-          <strong>
-            Front End Web Developer, En Masse Entertainment; Seattle, WA — 2019
-            - 2020
-          </strong>
-        </em>
-        <br />
         Web development work building new features and micro sites for company’s
         corporate websites, internationalization, work on the En Masse PC games
         launcher, and building new features for the game TERA’s in-game store.
@@ -32,13 +34,8 @@ export const ContentWork = (): JSX.Element => {
         / Yii Framework.{' '}
       </p>
       <hr />
+      <h2>Full Stack Tech Lead, coolblueweb; Seattle, WA — 2016 - 2019</h2>
       <p>
-        <em>
-          <strong>
-            Full Stack Tech Lead, coolblueweb; Seattle, WA — 2016 - 2019
-          </strong>
-        </em>
-        <br />
         Web development in an agency capacity across a range of frontend,
         backend, and networking tasks. Duties included: creating solutions,
         writing documentation, estimating tasks per budget, overseeing
@@ -49,28 +46,31 @@ export const ContentWork = (): JSX.Element => {
         Javascript, and building eCommerce configurators.
       </p>
       <hr />
+      <h2>
+        Web Developer / designer, Pinpoint Creative; Clemmons, NC — 2012 - 2013
+      </h2>
       <p>
-        <em>
-          <strong>
-            Web Developer / designer, Pinpoint Creative; Clemmons, NC — 2012 -
-            2013
-          </strong>
-        </em>
-        <br />
         Web and print design, general web development, IT support, and
         generating MailChimp email campaigns for Christian based organizations.{' '}
       </p>
       <hr />
+      <h2>
+        Creative Collaborator, One Hero Creative; Winston-Salem, NC — 2010 -
+        2012
+      </h2>
       <p>
-        <em>
-          <strong>
-            Creative Collaborator, One Hero Creative; Winston-Salem, NC — 2010 -
-            2012
-          </strong>
-        </em>
-        <br />
         Web design and development, ActionScript 3 UI / UX interfacing,
         philanthropic programming to better myself.
+      </p>
+      <hr />
+      <h2>
+        Freelance Full Stack developer, JacksonCleary; Seattle, WA — 2010 - 2020
+      </h2>
+      <p>
+        Web development in a freelance capacity: building new features across
+        WordPress, custom PHP solutions, interactive Javascript presentations,
+        and building React / VueJS components including frameworks like Nuxt.js
+        and Gatsby.
       </p>
     </section>
   );

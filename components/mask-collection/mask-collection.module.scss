@@ -1,5 +1,12 @@
 @import '../../styles/breakpoints.scss';
 
+.preload {
+  position: absolute;
+  top: -5000px;
+  left: -5000px;
+  visibility: hidden;
+}
+
 .mask-container {
   position: absolute;
   right: 0;
@@ -20,21 +27,50 @@
   inset: 0;
   background-size: cover;
   -webkit-mask-size: cover;
-  -webkit-mask-position: 0% 0%;
   mask-size: cover;
-  mask-position: 0% 0%;
   transition: -webkit-mask-position;
   transition: mask-position;
 }
 
-.top-down {
-  -webkit-mask-image: url('/mask/test-spritesheet-inverted.png');
-  mask-image: url('/mask/test-spritesheet-inverted.png');
-}
+.mask-animation {
+  .color-image {
+    &.top-down {
+      -webkit-mask-image: url('/mask/spritesheet-inverted.png');
+      mask-image: url('/mask/spritesheet-inverted.png');
+    }
 
-.bottom-up {
-  -webkit-mask-image: url('/mask/test-spritesheet.png');
-  mask-image: url('/mask/test-spritesheet.png');
+    &.bottom-up {
+      -webkit-mask-image: url('/mask/spritesheet.png');
+      mask-image: url('/mask/spritesheet.png');
+    }
+  }
+
+  &.stop .color-image {
+    animation: initial;
+    -webkit-mask-position: 100% 0%;
+    mask-position: 100% 0%;
+  }
+
+  &.play .color-image {
+    animation-play-state: running;
+  }
+
+  &.start .color-image {
+    -webkit-mask-position: 0% 0%;
+    mask-position: 0% 0%;
+    animation: addColor 1000ms steps(12) forwards;
+    animation-delay: 1s;
+
+    // animation-direction: normal;
+  }
+
+  &.reverse {
+    .color-image {
+      animation: removeColor 500ms steps(12) forwards;
+      animation-delay: 1s;
+      animation-play-state: running;
+    }
+  }
 }
 
 .clothing-2 {
@@ -53,11 +89,6 @@
   background-image: var(--var-mask-glasses);
 }
 
-.mask-animation .color-image {
-  animation: addColor 1000ms steps(12) forwards;
-  animation-delay: 1s;
-}
-
 @keyframes addColor {
   0% {
     -webkit-mask-position: 0% 0%;
@@ -69,8 +100,19 @@
   }
 }
 
-@media screen and (min-width: $breakpoint-desktop-small) {
-  .mask-animation {
-    animation: addColor 1000ms steps(12) forwards;
+@keyframes removeColor {
+  0% {
+    -webkit-mask-position: 100% 0%;
+    mask-position: 100% 0%;
   }
+  100% {
+    -webkit-mask-position: 0% 0%;
+    mask-position: 0% 0%;
+  }
+}
+
+@media screen and (min-width: $breakpoint-desktop-small) {
+  // .mask-animation {
+  //   animation: addColor 1000ms steps(12) forwards;
+  // }
 }

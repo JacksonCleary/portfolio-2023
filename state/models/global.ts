@@ -1,5 +1,6 @@
-import { StateAnimation } from './'
+import { StateAnimation } from './';
 
 export interface State {
-    animation: StateAnimation;
+  animation: StateAnimation;
+  mask: string[];
 }

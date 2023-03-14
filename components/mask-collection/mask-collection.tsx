@@ -1,14 +1,64 @@
+/* eslint-disable @next/next/no-img-element */
+import { useEffect, useState } from 'react';
+import useLoading from '../../hooks/loading';
+import { useMask } from '../../providers';
+import { chain } from '@/util/chain';
 import styles from './mask-collection.module.scss';
 
-interface MaskCollectionOptions {
-  isReady?: boolean;
-}
+const MaskCollection = (): JSX.Element => {
+  const isLoading = useLoading();
+  const isReady = !isLoading.loading && isLoading.complete;
+  const mask = useMask();
+  const [currentMaskClass, setCurrentMaskClass] = useState<string>('');
+  const [animationStateClass, setAnimationStateClass] = useState<string>('');
 
-const MaskCollection = ({
-  isReady = true
-}: MaskCollectionOptions): JSX.Element => {
+  const setRandomMaskingScheme = async () => {
+    const maskScheme = mask.state;
+    const current = document.body.dataset.scheme;
+    const randomIndex = Math.floor(Math.random() * maskScheme.length);
+    const randomScheme = maskScheme.filter((scheme) => scheme !== current)[
+      randomIndex
+    ];
+    document.body.dataset.scheme = randomScheme;
+  };
+
+  const handleTrigger = () => {
+    chain(
+      { time: 300, callback: handleReverse },
+      { time: 1800, callback: setRandomMaskingScheme },
+      { time: 1000, callback: handleForward }
+    );
+  };
+
+  const handleForward = () => {
+    setCurrentMaskClass('');
+    setAnimationStateClass(styles.start);
+  };
+
+  const handleReverse = () => {
+    setAnimationStateClass(styles.stop);
+
+    setCurrentMaskClass(styles.reverse);
+  };
+
+  useEffect(() => {
+    chain({ time: 500, callback: () => setAnimationStateClass(styles.start) });
+  }, []);
+
+  useEffect(() => {
+    if (isReady) {
+      handleTrigger();
+    }
+  }, [isReady]);
+
   return (
-    <div className={isReady ? styles['mask-animation'] : ''}>
+    <div
+      className={`${styles['mask-animation']} ${currentMaskClass} ${animationStateClass}`}
+    >
+      <div className={styles.preload}>
+        <link rel="prefetch" href="/mask/spritesheet.png" as="image" />
+        <link rel="prefetch" href="/mask/spritesheet-inverted.png" as="image" />
+      </div>
       <div className={styles['mask-container']}>
         <div
           className={`${styles['color-image']} ${styles['clothing-2']} ${styles['top-down']}`}
@@ -41,6 +91,7 @@ const MaskCollection = ({
       <div className={styles['mask-container']}>
         <div
           className={`${styles['color-image']} ${styles['glasses']} ${styles['top-down']}`}
+          // onAnimationEnd={() => handleReverse()}
         ></div>
         <img src="/mask/glasses-transparent.svg" alt="" role="presentation" />
       </div>

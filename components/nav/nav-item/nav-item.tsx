@@ -1,34 +1,35 @@
-import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { useBackgroundAnimation } from '@/providers/background-animation';
-
+import Link from 'next/link';
 import styles from './nav-item.module.scss';
 
 interface NavItemProps {
   route: string;
   text: string;
   label: string;
+  external?: boolean;
 }
 
-export const NavItem = ({ route, text, label }: NavItemProps): JSX.Element => {
-  const bganim = useBackgroundAnimation();
+export const NavItem = ({
+  route,
+  text,
+  label,
+  external = false
+}: NavItemProps): JSX.Element => {
   const router = useRouter();
 
-  const push = () => {
-    bganim.dispatch({
-      type: 'contentReady',
-      data: {
-        ready: false
-      }
-    });
-    setTimeout(() => {
-      router.push(route);
-    }, 1000);
-  };
+  const maybeActive = router.asPath === route ? styles.active : '';
 
   return (
-    <button aria-label={label} onClick={() => push()}>
-      {text}
-    </button>
+    <Link href={route} passHref>
+      <a
+        aria-label={label}
+        href={route}
+        className={`${styles.link} ${maybeActive}`}
+        target={external ? '_blank' : '_self'}
+        rel="noreferrer"
+      >
+        {text}
+      </a>
+    </Link>
   );
 };

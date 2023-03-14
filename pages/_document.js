@@ -1,6 +1,8 @@
 // pages/_document.js
 
 import Document, { Html, Head, Main, NextScript } from 'next/document';
+import Script from 'next/script';
+import { maskSchemeColors } from '../state/globals';
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -9,9 +11,10 @@ class MyDocument extends Document {
   }
 
   render() {
+    const masksToString = maskSchemeColors.toString();
     const setInitialTheme = `
 
-      const maskScheme = ['mint', 'monaco', 'peach', 'sage', 'sea', 'space', 'summer', 'vintage'];
+      const maskScheme = "${masksToString}".split(',');
       const randomIndex = Math.floor(Math.random() * maskScheme.length);
       const randomScheme = maskScheme[randomIndex];
 
@@ -22,7 +25,7 @@ class MyDocument extends Document {
         // return window.matchMedia('(prefers-color-scheme: dark)').matches 
         //   ? 'dark' 
         //   : 'light'
-        return 'dark';
+        return 'light';
       }
       document.body.dataset.theme = getUserPreference();
       document.body.dataset.scheme = randomScheme;
@@ -31,7 +34,10 @@ class MyDocument extends Document {
       <Html>
         <Head />
         <body>
-          <script dangerouslySetInnerHTML={{ __html: setInitialTheme }} />
+          {/* <script dangerouslySetInnerHTML={{ __html: setInitialTheme }} /> */}
+          <Script id="set-design-vars" strategy="afterInteractive">
+            {setInitialTheme}
+          </Script>
           <Main />
           <NextScript />
         </body>

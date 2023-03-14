@@ -1,7 +1,13 @@
+import useLoading from '@/hooks/loading';
+import Link from 'next/link';
+import { Heading } from '@/components/heading';
 export const ContentHome = (): JSX.Element => {
+  const { loading } = useLoading();
+
   return (
     <section>
-      <h1>Hello</h1>
+      <Heading text="Hello" />
+      {loading && <p>LOADING</p>}
       <p>My name is Daniel, and I am a software engineer. </p>
       <p>
         These days it&apos;s mostly Javascript, but I have experience in other
@@ -18,8 +24,9 @@ export const ContentHome = (): JSX.Element => {
         >
           Next.js
         </a>{' '}
-        and utilizes React, SCSS, GSAP, and some SVG goodness for flavor.
+        and utilizes React, SCSS and some SVG goodness for flavor.
       </p>
+      <Link href="/work">Work</Link>
     </section>
   );
 };

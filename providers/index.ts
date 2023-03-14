@@ -1,1 +1,2 @@
-export * from './background-animation'
+export * from './background-animation';
+export * from './mask';
