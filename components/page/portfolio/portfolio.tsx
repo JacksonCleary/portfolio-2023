@@ -1,10 +1,6 @@
 import React from 'react';
-import styles from './portfolio.module.scss';
+import { ContentPortfolio } from '@/content/pages/portfolio';
 
 export const PortfolioComponent = (): JSX.Element => {
-  return (
-    <div className={styles.portfolio}>
-      <div></div>
-    </div>
-  );
+  return <ContentPortfolio />;
 };

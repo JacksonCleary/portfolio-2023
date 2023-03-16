@@ -1,0 +1,27 @@
+@import '../styles/breakpoints.scss';
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  margin: var(--spacing-x-small) 0;
+  & > div {
+    display: flex;
+    align-items: center;
+    margin-right: var(--spacing-small);
+    svg {
+      width: 20px;
+      margin-right: var(--spacing-x-small);
+      path {
+        stroke: none;
+        fill: var(--color-text-secondary);
+        transition: fill 300ms var(--cubic-bezier);
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $breakpoint-tablet) {
+  .meta {
+    flex-direction: row;
+  }
+}

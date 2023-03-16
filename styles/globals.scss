@@ -207,6 +207,9 @@ body {
   --spacing-x-large: 80px;
   --spacing-xx-large: 100px;
 
+  // animation
+  --cubic-bezier: cubic-bezier(0.17, 0.67, 0.83, 0.67);
+
   // font
   --font-primary: 'IBM-Regular', sans-serif;
   --font-secondary: 'IBM-Light', sans-serif;
@@ -243,12 +246,12 @@ h5,
 h6 {
   margin: 0;
   font-weight: initial;
-  transition: background-color 1000ms cubic-bezier(0.17, 0.67, 0.83, 0.67);
+  transition: background-color 1000ms var(--cubic-bezier);
+  font-family: var(--font-secondary);
+  font-weight: var(--font-secondary-weight-std);
 }
 
 h1 {
-  font-family: var(--font-secondary);
-  font-weight: var(--font-secondary-weight-std);
   background-color: var(--color-text-secondary);
   color: var(--color-text-tertiary);
   font-size: 4rem;
@@ -258,7 +261,7 @@ h1 {
 }
 
 hr {
-  transition: border-color 1000ms cubic-bezier(0.17, 0.67, 0.83, 0.67);
+  transition: border-color 1000ms var(--cubic-bezier);
   border-color: var(--color-text-secondary);
 }
 
@@ -270,7 +273,7 @@ hr {
 a {
   color: var(--color-text-secondary);
   text-decoration: none;
-  transition: background-color 300ms cubic-bezier(0.17, 0.67, 0.83, 0.67);
+  transition: background-color 300ms var(--cubic-bezier);
   padding-right: 5px;
   &:before {
     content: '_';

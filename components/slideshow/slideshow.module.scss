@@ -1,0 +1,13 @@
+.container {
+  width: 100%;
+  overflow-x: scroll;
+}
+
+.slideshow {
+  overflow: hidden;
+  width: 1670px;
+  height: 300px;
+  position: relative;
+  display: flex;
+  border: 0px solid var(--color-text-secondary);
+}

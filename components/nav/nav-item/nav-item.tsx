@@ -23,7 +23,6 @@ export const NavItem = ({
     <Link href={route} passHref>
       <a
         aria-label={label}
-        href={route}
         className={`${styles.link} ${maybeActive}`}
         target={external ? '_blank' : '_self'}
         rel="noreferrer"

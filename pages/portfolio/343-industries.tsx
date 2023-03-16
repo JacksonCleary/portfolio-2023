@@ -1,12 +1,12 @@
 import type { NextPage } from 'next';
 import { Wrapper } from '@/components/wrapper';
-import { PortfolioComponent } from '@/components/page/portfolio';
+import { ThreeFourThreeIndustries } from '@/components/page/portfolio/items/343-industries';
 
 const Portfolio: NextPage = () => {
   return (
     <>
       <Wrapper>
-        <PortfolioComponent />
+        <ThreeFourThreeIndustries />
       </Wrapper>
     </>
   );
