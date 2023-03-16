@@ -59,7 +59,7 @@
     -webkit-mask-position: 0% 0%;
     mask-position: 0% 0%;
     animation: addColor 1000ms steps(12) forwards;
-    animation-delay: 1s;
+    // animation-delay: 1s;
 
     // animation-direction: normal;
   }
@@ -67,7 +67,7 @@
   &.reverse {
     .color-image {
       animation: removeColor 500ms steps(12) forwards;
-      animation-delay: 1s;
+      // animation-delay: 1s;
       animation-play-state: running;
     }
   }

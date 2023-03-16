@@ -25,8 +25,8 @@ const MaskCollection = (): JSX.Element => {
   const handleTrigger = () => {
     chain(
       { time: 300, callback: handleReverse },
-      { time: 1800, callback: setRandomMaskingScheme },
-      { time: 1000, callback: handleForward }
+      { time: 300, callback: setRandomMaskingScheme },
+      { time: 300, callback: handleForward }
     );
   };
 

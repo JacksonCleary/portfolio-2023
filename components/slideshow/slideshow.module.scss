@@ -1,13 +1,84 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
 .container {
-  width: 100%;
-  overflow-x: scroll;
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  border-right: 5px solid var(--color-text-secondary);
 }
 
 .slideshow {
-  overflow: hidden;
   width: 1670px;
   height: 300px;
   position: relative;
   display: flex;
-  border: 0px solid var(--color-text-secondary);
+  transition: transform 300ms ease-in-out;
+}
+
+.triangle {
+  display: inline-block;
+  transition: border-color 300ms var(--cubic-bezier);
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 0 10px 15px;
+  border-color: transparent transparent transparent var(--color-text-secondary);
+  &.reverse {
+    transform: rotate(180deg);
+  }
+}
+
+.controls {
+  display: flex;
+  margin: var(--spacing-smaller) 0 var(--spacing-medium);
+  button {
+    margin: 0 var(--spacing-medium) 0 0;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    .triangle {
+      border-width: 6px 0 6px 10px;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: initial;
+    }
+
+    &:focus-visible,
+    &:active,
+    &:hover {
+      &:not([disabled]) {
+        .text {
+          color: var(--color-text-tertiary);
+          background-color: var(--color-text-secondary);
+        }
+      }
+    }
+
+    .text {
+      color: var(--color-text-secondary);
+      transition: background-color 300ms var(--cubic-bezier);
+      padding: 1px 5px 0;
+    }
+  }
+}
+
+.embla__container {
+  display: flex;
+  height: 300px;
+}
+
+.embla__slide {
+  flex: 0 0 auto; /* Adapt slide size to its content */
+  min-width: 0;
+  max-width: 100%; /* Prevent from growing larger than viewport */
+  border-right: 5px solid var(--color-text-secondary);
+  cursor: grab;
+  &:active {
+    cursor: grabbing;
+  }
 }

@@ -261,7 +261,7 @@ h1 {
 }
 
 hr {
-  transition: border-color 1000ms var(--cubic-bezier);
+  transition: border-color 300ms var(--cubic-bezier);
   border-color: var(--color-text-secondary);
 }
 
