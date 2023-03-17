@@ -1,15 +1,15 @@
 import type { NextPage } from 'next';
 import { Wrapper } from '@/components/wrapper';
-import { ThreeFourThreeIndustries } from '@/components/page/portfolio/items/343-industries';
+import { ThreeFourThreeIndustriesItem } from '@/components/page/portfolio/items/343-industries';
 
-const Portfolio: NextPage = () => {
+const ThreeFourThree: NextPage = () => {
   return (
     <>
       <Wrapper>
-        <ThreeFourThreeIndustries />
+        <ThreeFourThreeIndustriesItem />
       </Wrapper>
     </>
   );
 };
 
-export default Portfolio;
+export default ThreeFourThree;

@@ -2,12 +2,17 @@
 
 .nav,
 .portfolio-nav {
-  width: 15vw;
   flex-direction: column;
 }
 .nav {
   display: none;
   margin-left: var(--spacing-small);
+  width: 12vw;
+}
+
+.portfolio-nav {
+  display: flex;
+  width: 20vw;
 }
 
 @media screen and (min-width: $breakpoint-tablet) {
