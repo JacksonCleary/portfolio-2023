@@ -46,13 +46,6 @@ export const Slideshow = ({
     if (emblaApi) emblaApi.on('select', onSelect);
   }, [emblaApi, onSelect]);
 
-  // useEffect(() => {
-  //   if (emblaApi) {
-  //     console.log('emblaApi?.canScrollPrev())', emblaApi?.canScrollPrev());
-
-  //   }
-  // }, [emblaApi]);
-
   return (
     <div className={styles.wrapper}>
       <h3>{label}</h3>
@@ -71,26 +64,29 @@ export const Slideshow = ({
           ))}
         </div>
       </div>
-
-      <div className={styles.controls}>
-        <button
-          onClick={scrollPrev}
-          aria-label="View Previous Slide"
-          disabled={prevDisabled}
-        >
-          <span className={`${styles.triangle} ${styles.reverse}`} />_
-          <span className={styles.text}>Prev</span>
-        </button>
-        <button
-          onClick={scrollNext}
-          aria-label="View Next Slide"
-          disabled={nextDisabled}
-        >
-          <span className={styles.text}>Next</span>
-          _
-          <span className={`${styles.triangle}`} />
-        </button>
-      </div>
+      {images.length > 1 ? (
+        <div className={styles.controls}>
+          <button
+            onClick={scrollPrev}
+            aria-label="View Previous Slide"
+            disabled={prevDisabled}
+          >
+            <span className={`${styles.triangle} ${styles.reverse}`} />_
+            <span className={styles.text}>Prev</span>
+          </button>
+          <button
+            onClick={scrollNext}
+            aria-label="View Next Slide"
+            disabled={nextDisabled}
+          >
+            <span className={styles.text}>Next</span>
+            _
+            <span className={`${styles.triangle}`} />
+          </button>
+        </div>
+      ) : (
+        <br />
+      )}
       {children && <div className={styles.description}>{children}</div>}
     </div>
   );

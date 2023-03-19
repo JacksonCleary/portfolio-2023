@@ -18,5 +18,9 @@
 @media screen and (min-width: $breakpoint-tablet) {
   .nav {
     display: flex;
+    .portfolio-nav {
+      width: 100%;
+      margin-left: var(--spacing-smaller);
+    }
   }
 }

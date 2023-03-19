@@ -26,10 +26,16 @@ export const PortfolioNav = (): JSX.Element => {
         route="/portfolio/coolblueweb"
       />
       <NavItem
-        text="En Masse Entertainment"
+        text="En Masse"
         label="See en masse work"
         route="/portfolio/enmasse"
       />
+      <NavItem
+        text="Stickerguy"
+        label="See Stickerguy work"
+        route="/portfolio/stickerguy"
+      />
+      <NavItem text="UAT" label="See UAT work" route="/portfolio/uat" />
     </div>
   );
 };
