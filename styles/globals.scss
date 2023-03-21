@@ -1,4 +1,5 @@
 @use './scrollbar.scss';
+@import './breakpoints.scss';
 
 @font-face {
   font-family: 'IBM-Light';
@@ -22,6 +23,10 @@ body[data-theme='light'] {
   --color-bg-primary: #fff;
   --color-bg-primary-alpha: rgba(255, 255, 255, 0.75);
   --color-bg-toggle: #1e90ff;
+
+  // mobile nav
+  --mobile-nav-bg: #333;
+  --mobile-nav-bg-inverse: #bababa;
 
   // svg background vars
   --color-daniel-stroke: #333;
@@ -109,6 +114,10 @@ body[data-theme='dark'] {
   --color-text-secondary: #e87d3e;
   // p
   --color-text-tertiary: #27201a;
+
+  //mobile nav
+  --mobile-nav-bg: #bababa;
+  --mobile-nav-bg-inverse: #333;
 
   --var-mask-clothing-2: url('/mask/dark/mint/clothing-2.svg');
   --var-mask-clothing-1: url('/mask/dark/mint/clothing-1.svg');
@@ -254,7 +263,7 @@ h6 {
 h1 {
   background-color: var(--color-text-secondary);
   color: var(--color-text-tertiary);
-  font-size: 4rem;
+  font-size: 2rem;
   text-transform: uppercase;
   letter-spacing: 0.01em;
   margin-bottom: var(--spacing-smaller);
@@ -284,5 +293,17 @@ a {
   &:hover {
     color: var(--color-text-tertiary);
     background-color: var(--color-text-secondary);
+  }
+}
+
+@media screen and (min-width: $breakpoint-tablet) {
+  h1 {
+    font-size: 3rem;
+  }
+}
+
+@media screen and (min-width: $breakpoint-desktop-small) {
+  h1 {
+    font-size: 4rem;
   }
 }

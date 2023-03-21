@@ -4,7 +4,7 @@ import { StateAnimationCoordinatePair } from '../../state';
 import { PageCoordinates } from '../../state';
 import { calcPolyline, calcPath } from '../../util/svg';
 import { morphingPaths } from '../../util/tween';
-import useWindowWidth from '../../hooks/get-window-width';
+import useWindowWidth from '../../hooks/get-window-dimensions';
 import { useRouter } from 'next/router';
 import styles from './background.module.scss';
 

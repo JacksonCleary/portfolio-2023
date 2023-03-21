@@ -3,9 +3,12 @@ import { useEffect, useState } from 'react';
 import useLoading from '../../hooks/loading';
 import { useMask } from '../../providers';
 import { chain } from '@/util/chain';
+import useWindowDimensions from '@/hooks/get-window-dimensions';
 import styles from './mask-collection.module.scss';
 
 const MaskCollection = (): JSX.Element => {
+  const windowDimensions = useWindowDimensions();
+  const isMobile = windowDimensions.width <= 1170;
   const isLoading = useLoading();
   const isReady = !isLoading.loading && isLoading.complete;
   const mask = useMask();
@@ -30,19 +33,28 @@ const MaskCollection = (): JSX.Element => {
     );
   };
 
+  const start = () => {
+    if (!isMobile) {
+      setAnimationStateClass(styles.start);
+    }
+  };
+
   const handleForward = () => {
-    setCurrentMaskClass('');
-    setAnimationStateClass(styles.start);
+    if (!isMobile) {
+      setCurrentMaskClass('');
+      setAnimationStateClass(styles.start);
+    }
   };
 
   const handleReverse = () => {
-    setAnimationStateClass(styles.stop);
-
-    setCurrentMaskClass(styles.reverse);
+    if (!isMobile) {
+      setAnimationStateClass(styles.stop);
+      setCurrentMaskClass(styles.reverse);
+    }
   };
 
   useEffect(() => {
-    chain({ time: 500, callback: () => setAnimationStateClass(styles.start) });
+    chain({ time: 500, callback: () => start() });
   }, []);
 
   useEffect(() => {
@@ -50,6 +62,10 @@ const MaskCollection = (): JSX.Element => {
       handleTrigger();
     }
   }, [isReady]);
+
+  if (isMobile) {
+    return <div></div>;
+  }
 
   return (
     <div

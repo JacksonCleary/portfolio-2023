@@ -1,7 +1,14 @@
 import React from 'react';
+import useWindowDimensions from '@/hooks/get-window-dimensions';
 import styles from './me-svg.module.scss';
 
 const MeSVG = (): JSX.Element => {
+  const windowDimensions = useWindowDimensions();
+
+  if (windowDimensions.width <= 1170) {
+    return <div></div>;
+  }
+
   return (
     <div className={styles.outline}>
       <svg

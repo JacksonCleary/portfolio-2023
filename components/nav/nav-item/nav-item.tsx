@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import styles from './nav-item.module.scss';
+import styles from '../nav.module.scss';
 
 interface NavItemProps {
   route: string;

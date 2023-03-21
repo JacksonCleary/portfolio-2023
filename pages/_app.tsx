@@ -1,3 +1,4 @@
+import React from 'react';
 import '../styles/globals.scss';
 import type { AppProps } from 'next/app';
 import dynamic from 'next/dynamic';
@@ -20,10 +21,6 @@ const DynamicMask = dynamic(
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      {/* <BackgroundAnimationProvider>
-        <DynamicBackground />
-        
-      </BackgroundAnimationProvider> */}
       <MaskProvider>
         <DynamicMask />
         <DynamicMeSVG />

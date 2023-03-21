@@ -1,0 +1,68 @@
+@import '../../styles/breakpoints.scss';
+
+$toggle-width: 80px;
+$toggle-height: 38px;
+$toggle-padding-top: initial;
+$toggle-padding-left: 2px;
+$toggle-padding: 4px;
+
+.toggle {
+  margin: var(--spacing-x-small) 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 1.25rem;
+  line-height: 1;
+  width: $toggle-width;
+  height: $toggle-height;
+  padding: $toggle-padding;
+  border: 2px solid var(--mobile-nav-bg-inverse);
+  border-radius: calc($toggle-width / 2);
+  cursor: pointer;
+  background: var(--color-text-secondary);
+  transition: background-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+
+  &:focus {
+    outline-offset: 5px;
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+  &:hover {
+    box-shadow: 0 0 5px 2px var(--color-text-secondary);
+  }
+
+  &.dark {
+    background: #666;
+    .thumb {
+      background-color: var(--color-text-secondary);
+      transform: translate3d(calc($toggle-width) - $toggle-height, 0, 0);
+    }
+  }
+}
+
+.thumb {
+  position: absolute;
+  left: $toggle-padding-left;
+  top: $toggle-padding-top;
+  width: calc($toggle-height) - ($toggle-padding) * 2;
+  height: calc($toggle-height) - ($toggle-padding) * 2;
+  border-radius: 50%;
+  background-color: white;
+  transition: transform 0.25s ease-in-out;
+  transform: none;
+}
+
+@media screen and (min-width: $breakpoint-tablet) {
+  .toggle {
+    border: none;
+  }
+  .thumb {
+    top: $toggle-padding;
+    left: $toggle-padding;
+    width: calc($toggle-height) - ($toggle-padding) * 2;
+    height: calc($toggle-height) - ($toggle-padding) * 2;
+  }
+}
