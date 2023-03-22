@@ -22,6 +22,38 @@
   display: flex;
   width: 100%;
   flex-shrink: 0;
+  position: relative;
+}
+
+.scroll-to-top {
+  position: absolute;
+  bottom: -26px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: none;
+  background: none;
+  opacity: 0.5;
+  &.enabled {
+    opacity: 1;
+    cursor: pointer;
+    .triangle {
+      border-color: var(--color-text-secondary) transparent transparent
+        transparent;
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.triangle {
+  display: inline-block;
+  transition: border-color 300ms var(--cubic-bezier),
+    transform 100ms var(--cubic-bezier);
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 10px 0 10px;
+  border-color: var(--color-text-primary) transparent transparent transparent;
+  transform: rotate(0deg);
 }
 
 @media screen and (min-width: $breakpoint-tablet) {

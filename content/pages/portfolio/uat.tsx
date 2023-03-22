@@ -13,7 +13,7 @@ export const UatContent = (): JSX.Element => {
   ];
 
   return (
-    <section>
+    <>
       <Heading text={'Uat'} />
       <p>
         This was one tool of many I built to help expedite our UAT process while
@@ -42,6 +42,6 @@ export const UatContent = (): JSX.Element => {
         Easy Peasy. The webhook would auto fire when a new bug was created and
         create a task in TW.{' '}
       </p>
-    </section>
+    </>
   );
 };

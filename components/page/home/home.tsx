@@ -4,7 +4,7 @@ import styles from './home.module.scss';
 
 export const HomeComponent = (): JSX.Element => {
   return (
-    <div className={styles.home}>
+    <div>
       <ContentHome />
     </div>
   );

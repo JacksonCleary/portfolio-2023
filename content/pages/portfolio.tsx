@@ -5,7 +5,7 @@ export const ContentPortfolio = (): JSX.Element => {
   const threefourthree =
     'I also have a PDF of current work samples from my time at 343 Industries.';
   return (
-    <section>
+    <>
       <Heading text="Portfolio" />
       <p>Here are some examples of my work.</p>
       <Link href={'/Daniel-Jackson-343-work-summary-2020-present.pdf'} passHref>
@@ -21,6 +21,6 @@ export const ContentPortfolio = (): JSX.Element => {
       <p></p>
       <hr />
       <PortfolioNav />
-    </section>
+    </>
   );
 };

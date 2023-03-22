@@ -25,7 +25,7 @@ export const BioclearContent = (): JSX.Element => {
   ];
 
   return (
-    <section>
+    <>
       <Heading text={'Bioclear'} />
       <p>
         Bioclear Matrix wanted to revamp their online presence and offer the
@@ -43,6 +43,6 @@ export const BioclearContent = (): JSX.Element => {
         </a>
       </p>
       <Slideshow label={contentImagesLabel} images={contentImages}></Slideshow>
-    </section>
+    </>
   );
 };

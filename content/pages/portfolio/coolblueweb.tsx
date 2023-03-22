@@ -31,7 +31,7 @@ export const CoolbluewebContent = (): JSX.Element => {
   ];
 
   return (
-    <section>
+    <>
       <Heading text={'coolblueweb'} />
       <p>
         I had the opportunity to work at{' '}
@@ -74,6 +74,6 @@ export const CoolbluewebContent = (): JSX.Element => {
           by modular WordPress PHP plugins.
         </p>
       </Slideshow>
-    </section>
+    </>
   );
 };

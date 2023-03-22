@@ -20,6 +20,10 @@
   }
 }
 
+.skills {
+  padding-left: var(--spacing-small);
+}
+
 @media screen and (min-width: $breakpoint-tablet) {
   .meta {
     flex-direction: row;

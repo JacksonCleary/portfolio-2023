@@ -26,7 +26,7 @@ export const FourCultureContent = (): JSX.Element => {
   ];
 
   return (
-    <section>
+    <>
       <Heading text={'4Culture'} />
       <p>
         4Culture provides funding and support for the cultural work that makes
@@ -63,6 +63,6 @@ export const FourCultureContent = (): JSX.Element => {
           alongside a team dedicated to making exactly what 4culture needed.{' '}
         </p>
       </Slideshow>
-    </section>
+    </>
   );
 };

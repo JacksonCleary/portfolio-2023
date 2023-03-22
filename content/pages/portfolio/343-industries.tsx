@@ -91,7 +91,7 @@ export const ThreeFourThreeIndustriesContent = (): JSX.Element => {
   ];
 
   return (
-    <section>
+    <>
       <Heading text={'343 Industries'} />
       <p>
         Halowaypoint.com, and the accompanying mobile app, are comprehensive
@@ -178,6 +178,6 @@ export const ThreeFourThreeIndustriesContent = (): JSX.Element => {
           functionality as a companion app.
         </p>
       </Slideshow>
-    </section>
+    </>
   );
 };

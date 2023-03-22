@@ -13,6 +13,7 @@ $icon-width: 32px;
 .portfolio-nav {
   flex-direction: column;
 }
+
 .nav {
   display: none;
   margin-left: var(--spacing-small);
@@ -24,9 +25,14 @@ $icon-width: 32px;
   width: 100%;
 }
 
+.secondary-nav {
+  display: none;
+}
+
 .icon {
   display: flex;
   width: $icon-width;
+  margin-bottom: var(--spacing-x-small);
   svg {
     width: $icon-width;
     height: auto;
@@ -59,11 +65,11 @@ $icon-width: 32px;
   .burger {
     position: relative;
     z-index: 3;
-    width: 44px;
     background-color: var(--color-text-secondary);
   }
   .menu-container {
     display: flex;
+    flex-direction: column;
     position: fixed;
     box-sizing: border-box;
     overflow-y: scroll;
@@ -74,13 +80,30 @@ $icon-width: 32px;
     height: 100%;
     transition: opacity 200ms ease-in-out;
     opacity: 0;
-    padding: 20px;
+    padding: 29px 20px;
     background-color: var(--mobile-nav-bg);
   }
   &.open .menu-container {
     top: 0;
     left: 0;
     opacity: 100;
+  }
+  .secondary-nav {
+    display: flex;
+    align-items: center;
+    .icon {
+      margin-bottom: 0;
+      margin-left: var(--spacing-x-small);
+      padding: 0;
+      svg path {
+        fill: var(--mobile-nav-bg-inverse);
+        &:focus-visible,
+        &:active,
+        &:hover {
+          stroke: rgba(0, 0, 0, 0);
+        }
+      }
+    }
   }
 }
 
@@ -104,16 +127,6 @@ $icon-width: 32px;
     width: 100%;
     padding-left: var(--spacing-medium);
   }
-  .icon {
-    svg path {
-      fill: var(--mobile-nav-bg-inverse);
-      &:focus-visible,
-      &:active,
-      &:hover {
-        stroke: rgba(0, 0, 0, 0);
-      }
-    }
-  }
 }
 
 @media screen and (min-width: $breakpoint-tablet) {
@@ -126,6 +139,10 @@ $icon-width: 32px;
   }
   .mobile-nav {
     display: none;
+  }
+  .secondary-nav {
+    display: flex;
+    flex-direction: column;
   }
 }
 

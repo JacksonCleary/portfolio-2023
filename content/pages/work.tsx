@@ -60,7 +60,7 @@ const Time = ({ text }: Meta): JSX.Element => {
 
 export const ContentWork = (): JSX.Element => {
   return (
-    <section>
+    <>
       <Heading text="Work History" />
       <h2>Software Design Engineer</h2>
       <div className={styles.meta}>
@@ -148,6 +148,6 @@ export const ContentWork = (): JSX.Element => {
         Web design and development, ActionScript 3 UI / UX interfacing,
         philanthropic programming to better myself.
       </p>
-    </section>
+    </>
   );
 };

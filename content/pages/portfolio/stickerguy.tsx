@@ -19,7 +19,7 @@ export const StickerguyContent = (): JSX.Element => {
   ];
 
   return (
-    <section>
+    <>
       <Heading text={'Stickerguy!'} />
       <p>
         <a
@@ -63,6 +63,6 @@ export const StickerguyContent = (): JSX.Element => {
         to modularize through a couple of plugin extensions.
       </p>
       <Slideshow label={contentImagesLabel} images={contentImages}></Slideshow>
-    </section>
+    </>
   );
 };

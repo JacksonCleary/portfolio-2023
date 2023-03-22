@@ -31,7 +31,7 @@ export const EnmasseContent = (): JSX.Element => {
   ];
 
   return (
-    <section>
+    <>
       <Heading text={'EME'} />
 
       <Slideshow label={contentImagesLabel} images={contentImages}>
@@ -62,6 +62,6 @@ export const EnmasseContent = (): JSX.Element => {
           updates / improvements to the VueJS layer of EME&apos;s game launcher.
         </p>
       </Slideshow>
-    </section>
+    </>
   );
 };

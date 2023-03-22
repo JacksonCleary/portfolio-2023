@@ -37,7 +37,7 @@ export const CamssContent = (): JSX.Element => {
   ];
 
   return (
-    <section>
+    <>
       <Heading text={'Camss'} />
       <p>
         This was a project fully developed by me. We initially had designs to
@@ -68,6 +68,6 @@ export const CamssContent = (): JSX.Element => {
           complex pages.
         </p>
       </Slideshow>
-    </section>
+    </>
   );
 };

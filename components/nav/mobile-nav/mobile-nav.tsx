@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Turn as Hamburger } from 'hamburger-react';
 import { Nav } from '../nav';
+import { SecondaryNav } from '../secondary-nav';
 import useLoading from '@/hooks/loading';
 import styles from '../nav.module.scss';
 
@@ -21,11 +22,13 @@ export const MobileNav = (): JSX.Element => {
           toggled={isOpen}
           toggle={setOpen}
           color={'var(--color-text-tertiary)'}
-          size={30}
-          direction={'left'}
+          size={20}
+          label={'Show Mobile Menu'}
+          //   direction={'left'}
         />
       </div>
       <div className={`${styles['menu-container']}`}>
+        <SecondaryNav />
         <Nav className={styles['mobile-menu']} />
       </div>
     </div>
