@@ -65,17 +65,12 @@ const Background = (): JSX.Element => {
   };
 
   const renderClasses = (classes: string[]): string => {
-    console.log('classes', classes);
     const renderString =
       classes.length > 0
         ? classes.reduce((previousValue, currentValue) => {
-            console.log('previous', previousValue);
-            console.log('current', currentValue);
-            console.log('classifyed', styles[currentValue]);
             return previousValue + ` ${styles[currentValue]}`;
           }, '')
         : '';
-    console.log('renderString', renderString);
     return renderString;
   };
 
@@ -150,16 +145,9 @@ const Background = (): JSX.Element => {
     }
   }, [introPathPoints]);
 
-  useEffect(() => {
-    console.log('router', router);
-  }, [router.query]);
-
-  //   useEffect(() => {
-  //     console.log('introAnimationStart', introAnimationStart);
-  //   }, [introAnimationStart]);
+  useEffect(() => {}, [router.query]);
 
   useEffect(() => {
-    console.log('primaryAnimationStart', primaryAnimationStart);
     if (primaryAnimationStart) {
       const polyLineString1 = calcPolyline(
         bganim.state.screenDimensions.width,
@@ -189,7 +177,6 @@ const Background = (): JSX.Element => {
   }, [primaryAnimationStart]);
 
   useEffect(() => {
-    console.log('route', router.route);
     if (typeof window !== 'undefined') {
       if (
         path1Points &&
@@ -201,12 +188,9 @@ const Background = (): JSX.Element => {
         // default to home;
         let animationGroup: PageCoordinates = bganim.state.coordinates.home;
         const route = router.route;
-        console.log('route', route);
         if (route) {
           const splitroute = route.split('/');
-          console.log('splitroute', splitroute);
           if (splitroute.length > 1) {
-            console.log('splitBasePath[1]', splitroute[1]);
             const possibleAnimSlug = splitroute[1];
             if (bganim.state.coordinates[possibleAnimSlug]) {
               animationGroup = bganim?.state?.coordinates[possibleAnimSlug];

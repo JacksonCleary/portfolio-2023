@@ -16,7 +16,6 @@ export const Wrapper = ({ children }: Props): JSX.Element => {
   const enabledClass = canScrollToTop ? styles.enabled : '';
 
   const handleScroll = (e: React.UIEvent<HTMLElement>) => {
-    console.log('scrolling');
     var element = e.target as HTMLElement;
 
     const top = element.scrollTop === 0;

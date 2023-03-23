@@ -40,7 +40,6 @@ export const ContactForm = () => {
         return res.json();
       })
       .then((data: MailResponse) => {
-        console.log('data', data);
         setSending(false);
         if (data.code === 500) {
           setFormMessage('Error :( Please contact me through LinkedIn');
@@ -48,14 +47,6 @@ export const ContactForm = () => {
           setFormMessage("Thanks I'll be in touch.");
         }
       });
-
-    // setTimeout(() => {
-    //   console.log(name);
-    //   console.log(email);
-    //   console.log(message);
-    //   setFormMessage("Sent. I'll be in touch.");
-    //   setSending(false);
-    // }, 2000);
   };
   return (
     <form onSubmit={onSubmit} className={styles.form}>
