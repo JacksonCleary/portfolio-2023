@@ -1,0 +1,22 @@
+.form,
+.form div {
+  display: flex;
+}
+
+.form,
+.input {
+  flex-direction: column;
+}
+
+.input {
+  margin-bottom: var(--spacing-smaller);
+}
+
+.action {
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: var(--spacing-medium);
+  p {
+    margin: 0 0 0 var(--spacing-smaller);
+  }
+}

@@ -14,6 +14,7 @@ const MaskCollection = (): JSX.Element => {
   const mask = useMask();
   const [currentMaskClass, setCurrentMaskClass] = useState<string>('');
   const [animationStateClass, setAnimationStateClass] = useState<string>('');
+  const [running, setRunning] = useState<boolean>(false);
 
   const setRandomMaskingScheme = async () => {
     const maskScheme = mask.state;
@@ -25,29 +26,35 @@ const MaskCollection = (): JSX.Element => {
     document.body.dataset.scheme = randomScheme;
   };
 
+  const startAnimation = () => setRunning(true);
+
+  const stopAnimation = () => setRunning(false);
+
   const handleTrigger = () => {
     chain(
+      { time: 0, callback: startAnimation },
       { time: 300, callback: handleReverse },
       { time: 300, callback: setRandomMaskingScheme },
-      { time: 300, callback: handleForward }
+      { time: 300, callback: handleForward },
+      { time: 0, callback: stopAnimation }
     );
   };
 
   const start = () => {
-    if (!isMobile) {
+    if (!isMobile && !running) {
       setAnimationStateClass(styles.start);
     }
   };
 
   const handleForward = () => {
-    if (!isMobile) {
+    if (!isMobile && !running) {
       setCurrentMaskClass('');
       setAnimationStateClass(styles.start);
     }
   };
 
   const handleReverse = () => {
-    if (!isMobile) {
+    if (!isMobile && !running) {
       setAnimationStateClass(styles.stop);
       setCurrentMaskClass(styles.reverse);
     }

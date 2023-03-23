@@ -11,7 +11,7 @@ export const Heading = ({ text }: HeadingProps): JSX.Element => {
     <div className={styles.heading}>
       <h1>
         _{text}
-        {loading && <span className={styles.blink}>.</span>}
+        {loading && <span className={'blink'}>.</span>}
       </h1>
     </div>
   );

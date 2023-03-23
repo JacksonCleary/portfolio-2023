@@ -216,6 +216,9 @@ body {
   --spacing-x-large: 80px;
   --spacing-xx-large: 100px;
 
+  // form
+  --form-font-color: #27201a;
+
   // animation
   --cubic-bezier: cubic-bezier(0.17, 0.67, 0.83, 0.67);
 
@@ -306,6 +309,54 @@ a {
   &:hover {
     color: var(--color-text-tertiary);
     background-color: var(--color-text-secondary);
+  }
+}
+
+input,
+textarea {
+  padding: 5px;
+  transition: border-color 200ms ease-in-out;
+  border: 2px solid var(--color-text-secondary);
+  font-family: var(--font-secondary);
+  color: var(--form-font-color);
+  line-height: 1.5;
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--font-secondary);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: background-color 300ms var(--cubic-bezier);
+  color: var(--color-text-tertiary);
+  background-color: var(--color-text-secondary);
+  border: 2px solid var(--color-text-secondary);
+  font-size: 1rem;
+  text-transform: uppercase;
+  &:focus-visible,
+  &:active,
+  &:hover {
+    color: var(--color-text-secondary);
+    background-color: var(--color-text-tertiary);
+  }
+}
+
+.blink {
+  visibility: visible;
+  animation: blink-animation 100ms steps(5, start) infinite;
+  -webkit-animation: blink-animation 100ms steps(5, start) infinite;
+  &.large {
+    font-size: 4rem;
+  }
+}
+@keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+@-webkit-keyframes blink-animation {
+  to {
+    visibility: hidden;
   }
 }
 

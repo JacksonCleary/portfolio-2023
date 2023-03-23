@@ -23,6 +23,7 @@ export const Nav = ({ className = '', children }: NavOptions): JSX.Element => {
         route="/portfolio"
       />
       {isPortfolio && <PortfolioNav />}
+      <NavItem text="Contact" label="Send me a message" route="/contact" />
       <NavItem
         text="Resume"
         label="See my resume"
