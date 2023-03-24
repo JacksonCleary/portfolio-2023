@@ -1,5 +1,6 @@
 import { Slideshow, SlideShowImageProps } from '@/components/slideshow';
 import { Heading } from '@/components/heading';
+import styles from '../../content.module.scss';
 
 export const EnmasseContent = (): JSX.Element => {
   const contentImagesLabel = 'En Masse Entertainment';
@@ -35,32 +36,39 @@ export const EnmasseContent = (): JSX.Element => {
       <Heading text={'EME'} />
 
       <Slideshow label={contentImagesLabel} images={contentImages}>
-        <p>
-          Building functional frontend plugins, backend optimizations, and
-          quality-of-life improvements in the form of{' '}
-          <a href="https://apostrophecms.com/" target="_blank" rel="noreferrer">
-            ApostropheCMS
-          </a>{' '}
-          modules.
-        </p>
-        <p>These included:</p>
-        <ul>
-          <li>
-            An infinite scroll blog archive, complete with pagination and
-            accessibility for indexed blog posts.
-          </li>
-          <li>A Javascript replacement for RoR cookie handling.</li>
-          <li>
-            Lots and lots of new content modules for project managers to render
-            conditional content.
-          </li>
-          <li>Internationalization</li>
-          <li>Generating HTML, embedding API media</li>
-        </ul>
-        <p>
-          Other work included a migration to CraftCMS from Ruby Refinery and
-          updates / improvements to the VueJS layer of EME&apos;s game launcher.
-        </p>
+        <div className={styles['content-padding']}>
+          <p>
+            Building functional frontend plugins, backend optimizations, and
+            quality-of-life improvements in the form of{' '}
+            <a
+              href="https://apostrophecms.com/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              ApostropheCMS
+            </a>{' '}
+            modules.
+          </p>
+          <p>These included:</p>
+          <ul>
+            <li>
+              An infinite scroll blog archive, complete with pagination and
+              accessibility for indexed blog posts
+            </li>
+            <li>A Javascript replacement for RoR cookie handling</li>
+            <li>
+              Lots and lots of new content modules for project managers to
+              render conditional content
+            </li>
+            <li>Internationalization</li>
+            <li>Generating HTML, embedding API media</li>
+          </ul>
+          <p>
+            Other work included a migration to CraftCMS from Ruby Refinery and
+            updates / improvements to the VueJS layer of EME&apos;s game
+            launcher.
+          </p>
+        </div>
       </Slideshow>
     </>
   );

@@ -1,5 +1,6 @@
 import { Slideshow, SlideShowImageProps } from '@/components/slideshow';
 import { Heading } from '@/components/heading';
+import styles from '../../content.module.scss';
 
 export const BioclearContent = (): JSX.Element => {
   const contentImagesLabel = 'By Dentists, For Dentists.';
@@ -27,21 +28,23 @@ export const BioclearContent = (): JSX.Element => {
   return (
     <>
       <Heading text={'Bioclear'} />
-      <p>
-        Bioclear Matrix wanted to revamp their online presence and offer the
-        ability to find other Dentists, register for online classes, and make
-        reordering dental supplies easier for their customers.
-      </p>
-      <p>
-        <a
-          href="https://www.bioclearmatrix.com/"
-          target="_blank"
-          title="Bioclearmatrix.come"
-          rel="noreferrer"
-        >
-          See It Live!
-        </a>
-      </p>
+      <div className={styles['content-padding']}>
+        <p>
+          Bioclear Matrix wanted to revamp their online presence and offer the
+          ability to find other Dentists, register for online classes, and make
+          reordering dental supplies easier for their customers.
+        </p>
+        <p>
+          <a
+            href="https://www.bioclearmatrix.com/"
+            target="_blank"
+            title="Bioclearmatrix.come"
+            rel="noreferrer"
+          >
+            See It Live!
+          </a>
+        </p>
+      </div>
       <Slideshow label={contentImagesLabel} images={contentImages}></Slideshow>
     </>
   );

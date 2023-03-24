@@ -1,5 +1,6 @@
 import { Slideshow, SlideShowImageProps } from '@/components/slideshow';
 import { Heading } from '@/components/heading';
+import styles from '../../content.module.scss';
 
 export const CamssContent = (): JSX.Element => {
   const contentImagesLabel = 'Portable Military Shelter Systems';
@@ -39,34 +40,38 @@ export const CamssContent = (): JSX.Element => {
   return (
     <>
       <Heading text={'Camss'} />
-      <p>
-        This was a project fully developed by me. We initially had designs to
-        run with, and after the initial Phase 1 of our project I took over
-        designing / developing everything.
-      </p>
-      <p>
-        <a
-          href="https://www.camss.com/"
-          target="_blank"
-          title="camss.come"
-          rel="noreferrer"
-        >
-          See It Live!
-        </a>
-      </p>
+      <div className={styles['content-padding']}>
+        <p>
+          This was a project fully developed by me. We initially had designs to
+          run with, and after the initial Phase 1 of our project I took over
+          designing / developing everything.
+        </p>
+        <p>
+          <a
+            href="https://www.camss.com/"
+            target="_blank"
+            title="camss.come"
+            rel="noreferrer"
+          >
+            See It Live!
+          </a>
+        </p>
+      </div>
       <Slideshow label={contentImagesLabel} images={contentImages}>
-        <p>
-          What you see on CAMSS.com is a complex backend of WooCommerce,
-          Advanced Custom Fields, the agility of flexbox, and many performance
-          saving frontend techniques to make a ton of WP content manageable and
-          fast.
-        </p>
+        <div className={styles['content-padding']}>
+          <p>
+            What you see on CAMSS.com is a complex backend of WooCommerce,
+            Advanced Custom Fields, the agility of flexbox, and many performance
+            saving frontend techniques to make a ton of WP content manageable
+            and fast.
+          </p>
 
-        <p>
-          Many shelters on the site come with a configurator for customization,
-          and I had a lot of fun making both the frontend and backend of these
-          complex pages.
-        </p>
+          <p>
+            Many shelters on the site come with a configurator for
+            customization, and I had a lot of fun making both the frontend and
+            backend of these complex pages.
+          </p>
+        </div>
       </Slideshow>
     </>
   );

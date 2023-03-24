@@ -24,8 +24,15 @@
   padding-left: var(--spacing-small);
 }
 
+.content-padding {
+  padding-right: 0;
+}
+
 @media screen and (min-width: $breakpoint-tablet) {
   .meta {
     flex-direction: row;
+  }
+  .content-padding {
+    padding-right: var(--spacing-small);
   }
 }
