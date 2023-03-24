@@ -13,7 +13,7 @@ export const WorkComponent = (): JSX.Element => {
         <meta name="author" content="Daniel Jackson" />
 
         <meta property="og:title" content="Daniel Jackson - Work History" />
-        <meta property="og:url" content={'https://jacksonweb.dev/contact'} />
+        <meta property="og:url" content={'https://jacksonweb.dev/work'} />
         <meta
           property="og:image"
           content="https://jacksonweb.dev/favicon.ico"
