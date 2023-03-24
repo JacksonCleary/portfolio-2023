@@ -4,6 +4,7 @@ import type { AppProps } from 'next/app';
 import dynamic from 'next/dynamic';
 import { MaskProvider } from '../providers';
 import useEmblaCarousel from 'embla-carousel-react';
+import { Analytics } from '@vercel/analytics/react';
 
 useEmblaCarousel.globalOptions = { loop: true };
 
@@ -26,6 +27,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <DynamicMeSVG />
 
         <Component {...pageProps} />
+        <Analytics />
       </MaskProvider>
     </>
   );
