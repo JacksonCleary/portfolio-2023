@@ -4,7 +4,6 @@ import { Nav } from '../nav';
 import { MobileNav } from '../nav/mobile-nav';
 import { SecondaryNav } from '../nav/secondary-nav';
 import { throttle } from 'lodash';
-import useWindowDimensions from '@/hooks/get-window-dimensions';
 import styles from './wrapper.module.scss';
 
 type Binding = HTMLElement;
@@ -15,14 +14,11 @@ type WrapperProps = {
 
 export const Wrapper = ({ children }: WrapperProps): JSX.Element => {
   const router = useRouter();
-  const windowDimensions = useWindowDimensions();
   const scrollThrottle = 300;
   const manualScrollRef = useRef<HTMLElement | null>(null);
   const [hideScrollArrow, setHideScrollArrow] = useState<boolean>(false);
 
   const hiddenArrow = hideScrollArrow ? styles.hide : '';
-
-  const disableCalcScroll = windowDimensions.width < 768;
 
   const onScroll = (e: React.UIEvent<HTMLElement>) => {
     const element = e.target as HTMLElement;
@@ -56,9 +52,7 @@ export const Wrapper = ({ children }: WrapperProps): JSX.Element => {
       <div className={styles.wrapper}>
         <section
           id="section-main"
-          onScroll={
-            !disableCalcScroll ? throttle(onScroll, scrollThrottle) : undefined
-          }
+          onScroll={throttle(onScroll, scrollThrottle)}
           ref={manualScrollRef}
         >
           {children}
