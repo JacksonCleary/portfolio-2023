@@ -32,7 +32,7 @@ export const ContentHome = (): JSX.Element => {
           <h4>Javascript</h4>
           <p>
             NodeJS, NextJS, React, React Native, Typescript, React Three Fiber,
-            Expsress, Jest testing, Storybook, VueJS, jQuery, lodash, moment,
+            Express, Jest testing, Storybook, VueJS, jQuery, lodash, moment,
             GSAP, Redux
           </p>
         </div>

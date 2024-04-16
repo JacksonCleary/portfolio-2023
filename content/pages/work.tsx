@@ -63,11 +63,29 @@ export const ContentWork = (): JSX.Element => {
     <>
       <Heading text="Work History" />
       <div className={styles['content-padding']}>
+        <h2>Senior Front End Engineer </h2>
+        <div className={styles.meta}>
+          <Business text={'10up'} />
+          <Location text={'Remote'} />
+          <Time text={'2023 - Present'} />
+        </div>
+        <p>
+          Web app development building out UI/UX in React and NextJS for
+          headless Wordpress implementations. Building modules in monorepo to be
+          consumed across web and Storybook for testing / presentation. Owning
+          features and communication with clients and stakeholders. Building
+          modules and accessible solutions for Gutenberg. Collaborating with
+          Backend, Designers, and Content for internationalization.
+          Presentation, documentation, and various other soft skills.
+        </p>
+      </div>
+      <hr />
+      <div className={styles['content-padding']}>
         <h2>Software Design Engineer</h2>
         <div className={styles.meta}>
           <Business text={'343 Industries'} />
           <Location text={'Redmond, WA'} />
-          <Time text={'2020 - Present'} />
+          <Time text={'2020 - 2023'} />
         </div>
         <p>
           Software development building out new services, extending APIs,

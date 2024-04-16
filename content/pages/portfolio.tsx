@@ -4,7 +4,7 @@ import { Heading } from '@/components/heading';
 import styles from '../content.module.scss';
 export const ContentPortfolio = (): JSX.Element => {
   const threefourthree =
-    'I also have a PDF of current work samples from my time at 343 Industries.';
+    'I also have a PDF of current work samples from my time at 343 Industries (2020 to 2023).';
   return (
     <>
       <Heading text="Portfolio" />
